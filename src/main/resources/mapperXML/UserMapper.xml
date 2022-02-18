@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qinghuo.xduHelp.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.qinghuo.xduHelp.model.domain.User">
+    <!--@mbg.generated-->
+    <!--@Table `user`-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="student_number" jdbcType="VARCHAR" property="studentNumber" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="academy" jdbcType="VARCHAR" property="academy" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="campus_card_avatar" jdbcType="VARCHAR" property="campusCardAvatar" />
+    <result column="wx_number" jdbcType="VARCHAR" property="wxNumber" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="is_certified" jdbcType="INTEGER" property="isCertified" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, nick_name, real_name, gender, student_number, grade, academy, phone_number, avatar, 
+    campus_card_avatar, wx_number, openid, is_certified, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `user`
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from `user`
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qinghuo.xduHelp.model.domain.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `user` (nick_name, real_name, gender, 
+      student_number, grade, academy, 
+      phone_number, avatar, campus_card_avatar, 
+      wx_number, openid, is_certified, 
+      create_time, update_time)
+    values (#{nickName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
+      #{studentNumber,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{academy,jdbcType=VARCHAR}, 
+      #{phoneNumber,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{campusCardAvatar,jdbcType=VARCHAR}, 
+      #{wxNumber,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{isCertified,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qinghuo.xduHelp.model.domain.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `user`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="studentNumber != null">
+        student_number,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="academy != null">
+        academy,
+      </if>
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="campusCardAvatar != null">
+        campus_card_avatar,
+      </if>
+      <if test="wxNumber != null">
+        wx_number,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="isCertified != null">
+        is_certified,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="studentNumber != null">
+        #{studentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="academy != null">
+        #{academy,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="campusCardAvatar != null">
+        #{campusCardAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNumber != null">
+        #{wxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="isCertified != null">
+        #{isCertified,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qinghuo.xduHelp.model.domain.User">
+    <!--@mbg.generated-->
+    update `user`
+    <set>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="studentNumber != null">
+        student_number = #{studentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="academy != null">
+        academy = #{academy,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="campusCardAvatar != null">
+        campus_card_avatar = #{campusCardAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNumber != null">
+        wx_number = #{wxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="isCertified != null">
+        is_certified = #{isCertified,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qinghuo.xduHelp.model.domain.User">
+    <!--@mbg.generated-->
+    update `user`
+    set nick_name = #{nickName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      student_number = #{studentNumber,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      academy = #{academy,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      campus_card_avatar = #{campusCardAvatar,jdbcType=VARCHAR},
+      wx_number = #{wxNumber,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      is_certified = #{isCertified,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
